@@ -5,27 +5,11 @@ import styles from '../styles/Home.module.css';
 import gql from 'graphql-tag';
 import { Key, useState } from 'react';
 
-interface Info {
-  count: number;
-  pages: number;
-  next: number;
-  prev: number;
-}
+import Card from '../components/Card';
 
-interface Character {
-  id: number;
-  name: String;
-  status: String;
-  species: String;
-  image: String;
-}
-interface Characters {
-  info: Info;
-  results: [Character];
-}
+import { Characters } from '../types';
 
 const Home = (props: Characters): JSX.Element => {
-  console.log(props);
   const initialState = props.results;
   // const [characters, setCharacters] = useState(characters.results);
 
@@ -38,12 +22,14 @@ const Home = (props: Characters): JSX.Element => {
       </Head>
 
       <main className={styles.main}>
-        <h1>PERSONAGENS</h1>
+        <h1>Rych and Morty Dex</h1>
 
-        {props.results &&
-          props.results.map((character) => {
-            return <h1 key={character.id}>{character.name}</h1>;
-          })}
+        <div className="cards-container">
+          {props.results &&
+            props.results.map((character) => {
+              return <Card key={character.id} character={character} />;
+            })}
+        </div>
       </main>
     </div>
   );
