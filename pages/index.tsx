@@ -22,7 +22,7 @@ const Home = (props: Characters): JSX.Element => {
       </Head>
 
       <main className={styles.main}>
-        <h1>Rych and Morty Dex</h1>
+        <h1>Rick and Morty Dex</h1>
 
         <div className="cards-container">
           {props.results &&
