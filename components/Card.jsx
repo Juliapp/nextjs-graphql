@@ -13,6 +13,7 @@ const Card = ({ character }) => {
         height="150px"
       />
       <strong>{character.name}</strong>
+      <footer>{character.species}</footer>
     </div>
   );
 };
